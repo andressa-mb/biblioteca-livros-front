@@ -8,7 +8,7 @@ import { LivrosService } from '../../api/LivrosService'
 const LivrosCadastro = () => {
 
   const [livro, setLivro] = useState({
-    id: '',
+    id: 1,
     titulo: '',
     num_paginas: '',
     isbn: '',
