@@ -11,20 +11,20 @@ const Livros = () => {
 
   async function getLivros(){
     const {data} = await LivrosService.getLivros();
-    setLivros(data)
+    setLivros(data);
   }
 
   async function deleteLivro(livroId){
     let valida = confirm(`Você realmente deseja remover o livro de ID: ${livroId}`);
     if(valida){
-      await LivrosService.deleteLivro(livroId)
-      .then(({data}) => {
-        alert(data.mensagem)
-        getLivros()
-      })
-      .catch(({response:{data,status}})=>{
-        alert(`${status} - ${data.mensagem}`)      
-      });
+      try {
+        await LivrosService.deleteLivro(livroId);
+        alert("Livro excluído com sucesso.");
+        getLivros();
+      }catch(error){
+        console.error("Erro ao excluir o livro:", error);
+        alert("Erro ao excluir o livro. Por favor, tente novamente mais tarde.");
+      }
     }
   }
 

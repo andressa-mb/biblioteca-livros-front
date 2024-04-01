@@ -1,2 +1,2 @@
 # projeto-react-api-node
-Projeto em React com API simples em Node.
+Projeto de uma Biblioteca de Livros em React com API simples em Node.
