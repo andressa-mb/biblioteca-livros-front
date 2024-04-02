@@ -29,7 +29,8 @@ const LivrosEdicao = () => {
   }
 
   useEffect(() => {
-    getLivro()    
+    console.log("Passou!")
+    getLivro()
   }, [livroId])  
 
   return (
@@ -61,8 +62,9 @@ const LivrosEdicao = () => {
               <input type="text"  required onChange={(event)=>{ setLivro({...livro, editora: event.target.value})}} value={livro.editora || ''}></input>
             </div> 
             <div className='form-group'>
-              <button onClick={()=>{
-              editLivro()
+              <button onClick={(e)=>{
+                e.preventDefault();
+              editLivro();
             }}>Atualizar Livro</button>  
             </div>                   
           </form>
